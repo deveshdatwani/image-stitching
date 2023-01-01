@@ -3,9 +3,10 @@ from torch import nn
 
 class dataGenerator():
     def __init__(self):
-        return None``
+        return None
 
-    def generateData(self):
+    def generateData(self, dataPath):
+
         return None
 
 
