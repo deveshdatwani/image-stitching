@@ -6,7 +6,7 @@ class dataGenerator():
         return None
 
     def generateData(self, dataPath):
-
+        
         return None
 
 
