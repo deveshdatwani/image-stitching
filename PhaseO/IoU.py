@@ -26,8 +26,6 @@ image = np.ones((1000,1000,3))
 image = cv2.rectangle(image, box1[1], box1[0], [0,0,0])
 image = cv2.rectangle(image, box2[1], box2[0], [0,0,0])
 
-from FastIoI import IoU_calculator
-
 BOX1 = []
 BOX2 = []
 
@@ -38,9 +36,6 @@ for i in box1:
 for i in box2:
     BOX2.append(i[0])
     BOX2.append(i[1])
-
-areaIOU = IoU_calculator(BOX1, BOX2)
-print(f'FAST IOU IS {areaIOU}')
 
 print(BOX1)
 print(BOX2)
