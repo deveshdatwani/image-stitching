@@ -1,5 +1,6 @@
 from utils import dataGenerator
+from warpData import CreateHomographyData
 
 if __name__ == "__main__":
-    dataCreator = dataGenerator()
-    dataCreator.generateData()
+    dataCreator = CreateHomographyData()
+    dataCreator.create()
