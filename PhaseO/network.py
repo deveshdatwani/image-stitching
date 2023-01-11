@@ -5,16 +5,16 @@ class HomographyNet(nn.Module):
     
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(6, 64, 3, 1, padding="same")
+        self.conv1 = nn.Conv2d(3, 64, 3, 1, padding="same")
         self.conv2 = nn.Conv2d(64, 64, 3, 1, padding="same")
-        self.max = nn.MaxPool2d(2, 1)
+        self.max = nn.MaxPool2d(4, 1)
         self.conv3 = nn.Conv2d(64, 64, 3, 1, padding="same")
         self.conv4 = nn.Conv2d(64, 64, 3, 1, padding="same")
         self.conv5 = nn.Conv2d(64, 128, 3, 1, padding="same")
-        self.conv6 = nn.Conv2d(128, 126, 3, 1, padding="same")
-        self.conv7 = nn.Conv2d(128, 128, 3, 1, padding="same")
-        self.conv8 = nn.Conv2d(128, 128, 3, 1, padding="same")
-        self.fullyConnected1 = nn.Linear(16*16*128, 1024, bias=True)
+        self.conv6 = nn.Conv2d(128, 128, 3, 1, padding="same")
+        self.conv7 = nn.Conv2d(128, 64, 3, 1, padding="same")
+        self.conv8 = nn.Conv2d(64, 32, 3, 1, padding="same")
+        self.fullyConnected1 = nn.Linear(264992, 1024, bias=True)
         self.fullyConnected2 = nn.Linear(1024, 8)
 
     def forward(self, x):
@@ -29,7 +29,7 @@ class HomographyNet(nn.Module):
         x = self.max(x)
         x = F.relu(self.conv7(x))
         x = F.relu(self.conv8(x))
-        x = x.reshape(-1, 16*16*128)
+        x = x.reshape(-1, 264992)
         x = F.relu(self.fullyConnected1(x))
         x = self.fullyConnected2(x)
         
