@@ -12,8 +12,4 @@ if __name__ == "__main__":
     image1 = read_image(path1 + filename)
     image2 = read_image(path2 + filename)
     IMAGE = torch.stack((image1, image2))
-    print(IMAGE.shape)
-    output = model(image1.float()) 
-    print(output)
-    
-    
+    output = model(image1.float())  
