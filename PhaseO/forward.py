@@ -10,5 +10,6 @@ if __name__ == "__main__":
     image1 = cv2.imread(path1 + filename)
     image2 = cv2.imread(path2 + filename)
     IMAGE = np.dstack((image1, image2))
+    print(IMAGE.shape)
     output = model(IMAGE) 
     

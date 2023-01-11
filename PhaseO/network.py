@@ -5,7 +5,7 @@ class HomographyNet(nn.Module):
     
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(2, 64, 3, 1, padding="same")
+        self.conv1 = nn.Conv2d(6, 64, 3, 1, padding="same")
         self.conv2 = nn.Conv2d(64, 64, 3, 1, padding="same")
         self.max = nn.MaxPool2d(2, 1)
         self.conv3 = nn.Conv2d(64, 64, 3, 1, padding="same")
